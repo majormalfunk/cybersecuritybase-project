@@ -57,12 +57,5 @@ public class Signup extends AbstractPersistable<Long> {
     public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
     }
-    /*
-    public List<String> asList() {
-        String[] details = {username, name, address, bankAccount};
-        ArrayList<String> detailsAsList = new ArrayList<>();
-        detailsAsList.addAll(Arrays.asList(details));
-        return detailsAsList;
-    }
-    */
+
 }
