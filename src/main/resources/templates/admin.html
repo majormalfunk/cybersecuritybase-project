@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Hello Administrator!</title>
+    </head>
+    <body>
+
+        <h1>Here you can perform your administrative duties</h1>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> 
+            <input type="submit" value="Log Out"/>
+        </form>
+
+        <ul th:each="error : ${errors}">
+            <li th:text="${error}"> </li>
+        </ul>
+
+        <iframe name="hiddenframe" style="display: none;"></iframe>
+
+        <h2>Create new account:</h2>
+
+        <form id="newaccount" method="POST" th:action="@{/newaccount}">
+            <input type="text" name="username"></input>
+            <input type="text" name="password"></input>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> 
+            <input type="submit" value="Create"/>
+        </form>
+
+        <h2>Registered users:</h2>
+
+        <table>
+            <tr th:each="account : ${accounts}">
+                <td>Username:</td><td th:utext="${account.username}"></td>
+
+                <td><label for="Admin">Admin: </label>
+                    <form style="display: inline-block" id="isadmin" method="POST" th:action="@{/updateuser/{username}(username=${account.username})}">
+                        <input th:if="${not account.administrator}" id="admincheck" type="checkbox" name="isadmin" value="1" onchange="this.form.submit()"/>
+                        <input th:if="${account.administrator}" id="admincheck" type="checkbox" name="isadmin" value="1" checked="checked" onchange="this.form.submit()"/>
+                        <input id="adminHidden" type="hidden" value="0" name="isadmin"/>
+                    </form>
+                </td>
+
+
+            </tr>
+        </table>
+
+    </body>
+</html>

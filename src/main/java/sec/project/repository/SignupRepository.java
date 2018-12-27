@@ -5,4 +5,5 @@ import sec.project.domain.Signup;
 
 public interface SignupRepository extends JpaRepository<Signup, Long> {
 
+    Signup findByUsername(String username);
 }

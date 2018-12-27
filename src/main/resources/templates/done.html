@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Thank you!</title>
+        <title>Cyber Security Event of The Century</title>
     </head>
     <body>
 
-        <h1>Thank you! You have been signed up to the event!</h1>
+        <h1><span th:utext="${name}"/>Attending the event!</h1>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> 
+            <input type="submit" value="Log Out"/>
+        </form>
+
+        <ul th:each="error : ${errors}">
+            <li th:text="${error}"> </li>
+        </ul>
+        
+        <table>
+            <tr th:each="signup : ${signups}">
+                <!-- Why utext ??? -->
+                <td>Name:</td><td th:utext="${signup.getName()}"></td>
+                <td>Address:</td><td th:utext="${signup.getAddress()}"></td>
+                <td>Bank Account:</td><td th:utext="${signup.getBankAccount()}"></td>
+            </tr>
+        </table>
 
     </body>
 </html>

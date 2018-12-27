@@ -5,11 +5,22 @@
     </head>
     <body>
 
-        <h1>Sign up to the event using this form</h1>
+        <h1>Sign up to The Cyber Security Event of The Century using this form</h1>
+        <h3>(Don't worry! It is 100% secure. We never disclose any of your data to third parties.)</h3>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> 
+            <input type="submit" value="Log Out"/>
+        </form>
+
+        <ul th:each="error : ${errors}">
+            <li th:text="${error}"> </li>
+        </ul>
 
         <form action="#" th:action="@{/form}" method="POST">
             <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
             <p><label for="address">Address</label>: <input type="text" name="address" id="address"/></p>
+            <p><label for="bankAccount">Bank Account</label>: <input type="text" name="bankAccount" id="bankAccount"/></p>
             <p><input type="submit" value="Submit" /></p>
         </form>
 
