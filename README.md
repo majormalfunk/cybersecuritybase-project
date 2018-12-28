@@ -9,10 +9,11 @@ There are two kinds of users in the web application derived from the base projec
 Using the web application: build it and launch it. By default it runs in port 8080 in localhost. (http://localhost:8080)
 
 These users are precreated in CustomUserDetailsService.java:
-admin/admin (administrator)
-donald/donald (signed up user)
-daisy/123456 (signed up user)
-newbie/password (not signed up user)
+
+* admin/admin (administrator)
+* donald/donald (signed up user)
+* daisy/123456 (signed up user)
+* newbie/password (not signed up user)
 
 A GitHub repository of the web application can be found at: https://github.com/majormalfunk/cybersecuritybase-project
 
