@@ -15,7 +15,7 @@ These users are precreated in CustomUserDetailsService.java:
 * daisy/123456 (signed up user)
 * newbie/password (not signed up user)
 
-A GitHub repository of the web application can be found at: https://github.com/majormalfunk/cybersecuritybase-project
+A GitHub repository of the web application can be found at: https://github.com/majormalfunk/cybersecuritybase-project. This report can also be found as the README.md of the repository.
 
 I have detected some alarming security risks in the web application and would now like to point them out. Here are the most obvious issues identified as some of OWASP Top 10 Application Security Risks:
 
